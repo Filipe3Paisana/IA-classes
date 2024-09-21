@@ -1,17 +1,14 @@
-
-
 def soma_recursiva(n):
     soma = 0
-    total = []
     for item in n:
         if isinstance(item, list):
-            soma_recursiva(item)
+            # Chama recursivamente para somar os itens dentro da sublista
+            soma += soma_recursiva(item)
         else:
             soma += item
-            total.apeend(soma)
-
+    return soma
 
 if __name__ == "__main__":
-
     lista = [1, 2, [3, 4], [5, 6]]
-    soma_recursiva(lista)
+    resultado = soma_recursiva(lista)
+    print(f"Soma total: {resultado}")
